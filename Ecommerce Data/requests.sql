@@ -47,15 +47,17 @@ SET price = LEFT(price, CHARINDEX(',', price + ',') - 1)
 select category_code,
        event_type,
        count(event_type) as EventTypeCount from ecommerce
+                                           where category_code is not null
 group by category_code,event_type
 order by  count(event_type) desc
 
 --Products
-select product_id,
+select top 500 product_id,
        event_type,
        count(event_type) as EventTypeCount from ecommerce
 group by product_id,event_type
 order by count(event_type) desc
+
 
 --Brands
 select brand,  event_type,
@@ -78,12 +80,12 @@ SET @buyersCount =  (
     FROM ecommerce
     WHERE event_type = 'purchase'
 );
-select @buyersCount
+select @buyersCount as [Number of users who made a purchase]
 
 --UA
 DECLARE @usersCount INT;
 SET @usersCount = (SELECT COUNT(DISTINCT user_id) AS CountOfUniqueUser FROM ecommerce);
-select @usersCount
+select @usersCount AS CountOfUniqueUser
 
 --Conversion
 SELECT (@buyersCount * 100.0) / @usersCount AS conversion;
@@ -111,7 +113,7 @@ order by  DATEPART(month , event_time),
     group by event_type,user_id
 )
 
-SELECT event_type, avg(CountTypeCount) as [Avg count per event type]
+SELECT event_type, avg(CountTypeCount) as [Average number per event type]
 FROM CountOfEventType
 group by event_type
 
@@ -137,7 +139,7 @@ SET @buyersCount2 =  (
     WHERE event_type = 'purchase'
 );
 
-select @totalRevenue/@buyersCount2 as ARPPU;
+select @totalRevenue2/@buyersCount2 as ARPPU;
 
 --Assess seasonal trends and changes in consumer preferences over time
 SELECT MONTH(event_time) AS month, event_type, COUNT(product_id) AS СountOfProduct
@@ -150,22 +152,19 @@ ORDER BY COUNT(product_id) desc
 
 ---Explore shopping trends based on day of the week, time of day, and other factors.
 --Weekday
-SELECT DATEPART(month , event_time) as month,
-    CASE
-        WHEN DATEPART(day , event_time) <8 THEN 'Week 1'
-        WHEN DATEPART(day , event_time) <15 THEN 'Week 2'
-        WHEN DATEPART(day , event_time) <22 THEN 'Week 3'
-        ELSE 'Week 4' end as WeekOfMonth,
-    DATEPART(weekday , event_time) weekday, event_type, COUNT(product_id) AS СountOfProduct
-FROM ecommerce
-WHERE event_type = 'purchase'
-GROUP BY DATEPART(month, event_time),
-        DATEPART(day , event_time),
-        DATEPART(weekday, event_time),
-        event_type
-ORDER BY DATEPART(month, event_time),
-        DATEPART(day , event_time),
-        DATEPART(weekday, event_time)
+
+SELECT
+    DATEADD(dd, DATEDIFF(dd, 0, event_time), 0) AS event_day,
+    COUNT(product_id) AS [Count Of Purchased Products]
+FROM
+    ecommerce
+WHERE
+    event_type = 'purchase'
+GROUP BY
+    DATEADD(dd, DATEDIFF(dd, 0, event_time), 0)
+ORDER BY
+    DATEADD(dd, DATEDIFF(dd, 0, event_time), 0)
+
 
 
 --Time of day
