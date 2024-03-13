@@ -169,7 +169,7 @@ ORDER BY
 
 --Time of day
 SELECT
-    DATEPART(hour, event_time) AS hour,
+    DATEPART(hour, event_time) AS Hour,
     COUNT(product_id) AS CountOfProduct
 FROM
     ecommerce
