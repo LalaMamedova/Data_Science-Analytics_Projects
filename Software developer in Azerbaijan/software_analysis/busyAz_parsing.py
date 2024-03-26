@@ -52,25 +52,25 @@ for i in range(1,90):
 
         if vacancy_details.find("span", string="Elanın qoyulma tarixi"):
             posting_date = vacancy_details.find("span", string="Elanın qoyulma tarixi").find_next_sibling("h5").text.strip()
-            vacancy_data["Post Posting Date"] = posting_date
+            vacancy_data["Posting Date"] = posting_date
         else:
-            vacancy_data["Post Posting Date"] = "Null"
+            vacancy_data["Posting Date"] = "Null"
 
         if vacancy_details.find("span", string="Son müraciət tarixi"):
             deadline_date = vacancy_details.find("span", string="Son müraciət tarixi").find_next_sibling("h5").text.strip()
-            vacancy_data["Post Deadline Date"] = deadline_date
+            vacancy_data["Deadline Date"] = deadline_date
         else:
-            vacancy_data["Post Deadline Date"] = "Null"
+            vacancy_data["Deadline Date"] = "Null"
 
         if vacancy_details.findAll("div", class_="task-tags"):
             tags_container = vacancy_details.findAll("div", class_="task-tags")
             all_tags = [tag.text.strip() for tag in tags_container[0].find_all("span")]
             all_alter_name = [tag.text.strip() for tag in tags_container[1].find_all("span")]
 
-            vacancy_data["All Tags"] = all_tags
+            vacancy_data["Skills"] = all_tags
             vacancy_data["All Vacancy Alter Name"] = all_alter_name
         else:
-            vacancy_data["All Tags"] = "Null"
+            vacancy_data["Skills"] = "Null"
             vacancy_data["All Vacancy Alter Name"] = "Null"
 
         vacancy_data = {
