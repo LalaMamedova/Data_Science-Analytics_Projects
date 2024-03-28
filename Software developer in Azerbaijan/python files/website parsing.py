@@ -1,12 +1,12 @@
-import requests
 from bs4 import BeautifulSoup
+import requests
 import json
 
 all_data = []
 vacancy_data = {}
 vacancy_index = 1
 
-for i in range(1,90):
+for i in range(1,2):
     webLink = f"https://busy.az/professions/software-developer?page={i}"
     response = requests.get(webLink).content
     soup = BeautifulSoup(response, 'lxml',from_encoding='utf-8')
@@ -68,10 +68,10 @@ for i in range(1,90):
             all_alter_name = [tag.text.strip() for tag in tags_container[1].find_all("span")]
 
             vacancy_data["Skills"] = all_tags
-            vacancy_data["All Vacancy Alter Name"] = all_alter_name
+            vacancy_data["Vacancy Alter Name"] = all_alter_name
         else:
             vacancy_data["Skills"] = "Null"
-            vacancy_data["All Vacancy Alter Name"] = "Null"
+            vacancy_data["Vacancy Alter Name"] = "Null"
 
         vacancy_data = {
             "Id": vacancy_index,
@@ -83,9 +83,9 @@ for i in range(1,90):
         vacancy_index +=1
     break
 
+print(all_data)
 
-
-
-json_filename = "../vacancy_data.json"
-with open(json_filename, 'w') as json_file:
-    json.dump(all_data, json_file, indent=4)
+#
+# json_filename = "../vacancy_data.json"
+# with open(json_filename, 'w') as json_file:
+#     json.dump(all_data, json_file, indent=4)
