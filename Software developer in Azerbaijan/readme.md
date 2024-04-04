@@ -1,6 +1,6 @@
-# Software Developer Vacancies in Azerbaijan Data Analysis
+# Software Developer Vacancies in Azerbaijan: Data Analysis
 
-This project aims to analyze software developer job vacancies in Azerbaijan to understand the trends in skills demand, popular languages, frequency of postings, and other relevant insights.
+This project aims to analyze software developer job vacancies in Azerbaijan to understand trends in skills demand, popular languages, frequency of postings, and other relevant insights.
 
 ## Data Collection and Analysis
 
@@ -22,21 +22,33 @@ For detailed analysis and code, please refer to the `data.ipynb` file.
 - fuzzywuzzy
 - calendar
 
-## File Structure
+### File Structure
+- `README.md`: This file provides an overview of the project.
 
-- `data.ipynb`: Main Jupyter Notebook containing detailed analysis and code.
-- `busyAz_parsing.py`: Programm for `Busy.az` Parsing 
-- `README.md`: This file, providing an overview of the project.
-### Excel files
-- `main vacancy_data.xlsx` : Main excel file with all data
-- `vacancy primary info.xlsx` : Excel file with information about the vacancy in one line, for example title, url and etc
-- `vacancy skills.xlsx` - Excel file with skills needed for the job
+# V1
+- `website data.ipynb`: Main Jupyter Notebook containing detailed analysis and code.
+- `website parsing.py`: Program for parsing `Busy.az`.
+
+### Excel Files
+- `main vacancy_data.xlsx`: Main Excel file with all data.
+- `vacancy primary info.xlsx`: Excel file with information about the vacancy in one line, for example title, URL, etc.
+- `vacancy skills.xlsx`: Excel file with skills needed for the job.
+
+# V2
+- `website data.ipynb`: Main Jupyter Notebook containing detailed analysis and code.
+- `website parsing.py`: Program for parsing `Busy.az`.
+- `change old excel format.py`: Program for changing old `vacancy_data_part_one` and `vacancy_data_part_two` to new `full vacancy data`.
+
+### Excel Files
+- `vacancy_data_part_one.xlsx`: Data about vacancies from March 2024 to January 2021.
+- `vacancy_data_part_two.xlsx`: Data about vacancies from January 2021 to February 2015.
+- `full vacancy data.xlsx`: Combined file containing data from the first two files.
 
 ## Usage
-
 1. Clone the repository.
-2. Open `busyAz_parsing.py` in Python for parsing fresh vacancies
-3. Open `data.ipynb` in Jupyter Notebook or JupyterLab to view the analysis.
+2. Open `website parsing.py` in Python for parsing fresh vacancies.
+   In the `V1` folder, `website parsing.py` parses only the first 90 pages, while in `V2`, it parses from page 91 to 160 (the last page in April 2024). However, you can parse from page 1 to 160+.
+3. Open `website data.ipynb` in Jupyter Notebook or JupyterLab to view the analysis.
 4. Execute the cells in the notebook to reproduce the analysis or modify as needed.
 
 Have a nice read!

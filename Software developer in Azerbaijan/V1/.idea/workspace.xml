@@ -38,9 +38,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2eJlVI5AjsDY4jUD25V5g9CrsQq" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -51,7 +51,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/Data Analyst Projects/Software developer in Azerbaijan",
+    "last_opened_file_path": "D:/Data Analyst Projects/Software developer in Azerbaijan/V1/python files",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -76,6 +76,7 @@
       <option name="presentableId" value="Default" />
       <updated>1711630583387</updated>
       <workItem from="1711630584474" duration="4141000" />
+      <workItem from="1711998018197" duration="14000" />
     </task>
     <servers />
   </component>

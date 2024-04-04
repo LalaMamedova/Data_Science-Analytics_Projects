@@ -6,7 +6,7 @@ all_data = []
 vacancy_data = {}
 vacancy_index = 1
 
-for i in range(1,2):
+for i in range(1,90):
     webLink = f"https://busy.az/professions/software-developer?page={i}"
     response = requests.get(webLink).content
     soup = BeautifulSoup(response, 'lxml',from_encoding='utf-8')
@@ -83,9 +83,7 @@ for i in range(1,2):
         vacancy_index +=1
     break
 
-print(all_data)
 
-#
-# json_filename = "../vacancy_data.json"
-# with open(json_filename, 'w') as json_file:
-#     json.dump(all_data, json_file, indent=4)
+json_filename = "../vacancy_data.json"
+with open(json_filename, 'w') as json_file:
+    json.dump(all_data, json_file, indent=4)
