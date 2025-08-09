@@ -7,5 +7,4 @@ This type of project involves the full pipeline of data science processes, inclu
 
 # Data Analytics Project - Projects without Machine Learning, Only Analysis and Visualization
 This type of project focuses on data analysis and visualization, without building machine learning models. 
-* [Flags](https://github.com/LalaMamedova/Flags)
-* [Ecommerce](https://github.com/LalaMamedova/Ecommerce)
+* [Azerbaijan in 2050](https://github.com/LalaMamedova/Azerbaijan_in_2050)
